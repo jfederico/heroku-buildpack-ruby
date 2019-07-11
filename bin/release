@@ -2,11 +2,11 @@
 
 require 'pathname'
 
-puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+#puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
 puts release.read if release.exist?
 
-puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+#puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 #CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
 #if [[ "$CUSTOM_REF_NAME" == *"release"* ]]; then
 #  VERSION_CODE=${CUSTOM_REF_NAME:8}
