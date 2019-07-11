@@ -13,7 +13,8 @@ else
 fi
 echo "**********************************************************"
 echo $VERSION_CODE
-sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" config/initializers/version.rb	
+ls -al
+sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" config/initializers/version.rb
 
 source "$BIN_DIR/support/bash_functions.sh"
 heroku_buildpack_ruby_install_ruby "$BIN_DIR" "$BUILDPACK_DIR"
