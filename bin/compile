@@ -19,6 +19,7 @@ export
 #pwd
 #ls -al
 echo "**********************************************************"
+grep -R VERSION_CODE .
 #echo $BIN_DIR
 #ls -al $BIN_DIR
 #echo $BUILDPACK_DIR
