@@ -11,7 +11,7 @@ if [[ "$CUSTOM_REF_NAME" == *"release"* ]]; then
   export VERSION_CODE=${CUSTOM_REF_NAME:8}
 else
   #export VERSION_CODE="$CUSTOM_REF_NAME ($(expr substr $(git rev-parse HEAD) 1 7))"
-  export VERSION_CODE="$CUSTOM_REF_NAME ($($SOURCE_VERSION 1 7))"
+  export VERSION_CODE="$CUSTOM_REF_NAME ($(expr substr $SOURCE_VERSION 1 7))"
 fi
 echo "**********************************************************"
 echo $VERSION_CODE
