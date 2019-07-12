@@ -5,6 +5,7 @@
 BIN_DIR=$(cd $(dirname $0); pwd)
 BUILDPACK_DIR=$(dirname $BIN_DIR)
 
+
 CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
 if [[ "$CUSTOM_REF_NAME" == *"release"* ]]; then
   VERSION_CODE=${CUSTOM_REF_NAME:8}
@@ -23,8 +24,7 @@ echo $BUILDPACK_DIR
 ls -al $BUILDPACK_DIR
 echo "**********************************************************"
 
-
-sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" config/initializers/version.rb
+sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" $BUILDPACK_DIR/config/initializers/version.rb
 
 source "$BIN_DIR/support/bash_functions.sh"
 heroku_buildpack_ruby_install_ruby "$BIN_DIR" "$BUILDPACK_DIR"
