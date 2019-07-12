@@ -13,6 +13,8 @@ else
 fi
 echo "**********************************************************"
 echo $VERSION_CODE
+echo $BIN_DIR
+echo $BUILDPACK_DIR
 ls -al
 sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" config/initializers/version.rb
 
