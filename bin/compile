@@ -21,7 +21,7 @@ echo "**********************************************************"
 echo $BIN_DIR
 ls -al $BIN_DIR
 echo $BUILDPACK_DIR
-ls -al $BUILDPACK_DIR
+ls -al $BUILDPACK_DIR/config/initializers
 echo "**********************************************************"
 
 sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" $BUILDPACK_DIR/config/initializers/version.rb
