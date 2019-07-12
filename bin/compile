@@ -6,11 +6,12 @@ BIN_DIR=$(cd $(dirname $0); pwd)
 BUILDPACK_DIR=$(dirname $BIN_DIR)
 
 
-#CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
-if [[ "$SOURCE_VERSION" == *"release"* ]]; then
-  export VERSION_CODE=${SOURCE_VERSION:8}
+CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
+if [[ "$CUSTOM_REF_NAME" == *"release"* ]]; then
+  export VERSION_CODE=${CUSTOM_REF_NAME:8}
 else
-  export VERSION_CODE="$SOURCE_VERSION ($(expr substr $(git rev-parse HEAD) 1 7))"
+  #export VERSION_CODE="$CUSTOM_REF_NAME ($(expr substr $(git rev-parse HEAD) 1 7))"
+  export VERSION_CODE="$CUSTOM_REF_NAME ($($SOURCE_VERSION 1 7))"
 fi
 echo "**********************************************************"
 echo $VERSION_CODE
