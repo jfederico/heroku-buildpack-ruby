@@ -15,15 +15,16 @@ fi
 echo "**********************************************************"
 echo $VERSION_CODE
 echo "**********************************************************"
-pwd
-ls -al
+export
+#pwd
+#ls -al
 echo "**********************************************************"
-echo $BIN_DIR
-ls -al $BIN_DIR
-echo $BUILDPACK_DIR
-ls -al $BUILDPACK_DIR
-ls -al $BUILDPACK_DIR/config
-echo "**********************************************************"
+#echo $BIN_DIR
+#ls -al $BIN_DIR
+#echo $BUILDPACK_DIR
+#ls -al $BUILDPACK_DIR
+#ls -al $BUILDPACK_DIR/config
+#echo "**********************************************************"
 
 #sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" $BUILDPACK_DIR/config/initializers/version.rb
 
