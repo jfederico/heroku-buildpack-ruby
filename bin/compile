@@ -6,28 +6,28 @@ BIN_DIR=$(cd $(dirname $0); pwd)
 BUILDPACK_DIR=$(dirname $BIN_DIR)
 
 
-CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
-if [[ "$CUSTOM_REF_NAME" == *"release"* ]]; then
-  export VERSION_CODE=${CUSTOM_REF_NAME:8}
+#CUSTOM_REF_NAME=$(git branch | grep \* | cut -d ' ' -f2)
+if [[ "$SOURCE_VERSION" == *"release"* ]]; then
+  export VERSION_CODE=${SOURCE_VERSION:8}
 else
-  export VERSION_CODE="$CUSTOM_REF_NAME ($(expr substr $(git rev-parse HEAD) 1 7))"
+  export VERSION_CODE="$SOURCE_VERSION ($(expr substr $(git rev-parse HEAD) 1 7))"
 fi
 echo "**********************************************************"
 echo $VERSION_CODE
 echo "**********************************************************"
 export
-#pwd
-#ls -al
 echo "**********************************************************"
-grep -R VERSION_CODE .
+ls -al /app
+ls -al /app/config
+grep -R VERSION_CODE /app/
 #echo $BIN_DIR
 #ls -al $BIN_DIR
 #echo $BUILDPACK_DIR
 #ls -al $BUILDPACK_DIR
 #ls -al $BUILDPACK_DIR/config
-#echo "**********************************************************"
+echo "**********************************************************"
 
-#sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" $BUILDPACK_DIR/config/initializers/version.rb
+sed -i "s/VERSION =.*/VERSION = \"$VERSION_CODE\"/g" /app/config/initializers/version.rb
 
 
 source "$BIN_DIR/support/bash_functions.sh"
